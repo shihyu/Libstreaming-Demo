@@ -177,8 +177,8 @@ public class StreamAndroidPhone extends Activity implements RtspClient.Callback,
         port = m.group(2);
         path = m.group(3);
 
-        mClient.setCredentials(AppConfig.PUBLISHER_USERNAME,
-                AppConfig.PUBLISHER_PASSWORD);
+//        mClient.setCredentials(AppConfig.PUBLISHER_USERNAME,
+//                AppConfig.PUBLISHER_PASSWORD);
         mClient.setServerAddress(ip, Integer.parseInt(port));
         mClient.setStreamPath("/" + path);
     }
