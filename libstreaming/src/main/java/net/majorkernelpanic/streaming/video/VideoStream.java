@@ -52,6 +52,7 @@ import android.util.Log;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
+import android.view.View;
 
 /** 
  * Don't use this class directly.
@@ -477,7 +478,9 @@ public abstract class VideoStream extends MediaStream {
 					} else {
 						Log.e(TAG,"No buffer available !");
 					}
-				} finally {
+				} catch (Exception e){
+                    e.printStackTrace();
+                }finally {
 					mCamera.addCallbackBuffer(data);
 				}				
 			}
@@ -665,6 +668,12 @@ public abstract class VideoStream extends MediaStream {
 		try {
 			mCamera.setParameters(parameters);
 			mCamera.setDisplayOrientation(mOrientation);
+            mSurfaceView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mCamera.autoFocus(null);
+                }
+            });
 			mCamera.startPreview();
 			mPreviewStarted = true;
 			mUpdated = true;

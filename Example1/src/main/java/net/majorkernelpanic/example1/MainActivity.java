@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.WindowManager;
 
+import net.majorkernelpanic.streaming.MediaStream;
 import net.majorkernelpanic.streaming.SessionBuilder;
 import net.majorkernelpanic.streaming.gl.SurfaceView;
 import net.majorkernelpanic.streaming.rtsp.RtspServer;
@@ -38,6 +39,7 @@ public class MainActivity extends Activity {
         editor.commit();
         VideoQuality vq = new VideoQuality(1280, 720, 24, 5000 * 1000);
         // Configures the SessionBuilder
+
         SessionBuilder.getInstance()
                 .setSurfaceView(mSurfaceView)
                 .setPreviewOrientation(90)

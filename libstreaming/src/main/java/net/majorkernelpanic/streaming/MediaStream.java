@@ -82,7 +82,7 @@ public abstract class MediaStream implements Stream {
      */
     protected AbstractPacketizer mPacketizer = null;
 
-    protected static byte sSuggestedMode = MODE_MEDIARECORDER_API;
+    protected static byte sSuggestedMode = MODE_MEDIACODEC_API;
     protected byte mMode, mRequestedMode;
 
     /**
@@ -313,7 +313,7 @@ public abstract class MediaStream implements Stream {
         if (mStreaming) {
             try {
                 // if (mMode == MODE_MEDIARECORDER_API) {
-                if (Build.VERSION.SDK_INT > Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1) {
+                if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1) {
                     mMediaRecorder.stop();
                     mMediaRecorder.release();
                     mMediaRecorder = null;
